@@ -18,8 +18,7 @@ class Hangman:
     num_lives: int
         Number of lives the player has '''
 
- word_list = ["Execution","Tea","Supposedly", "there" ,"are" ,"over" ,"one","million", "words" ,"in", "the" ,"English" ,"Language"]
-num_lives = int(3)
+
  
           '''
     Attributes:
@@ -37,6 +36,11 @@ num_lives = int(3)
     list_letters: list
         A list of the letters that have already been tried
 '''
+
+
+
+word_list = ["Execution","Tea","Supposedly", "there" ,"are" ,"over" ,"one","million", "words" ,"in", "the" ,"English" ,"Language"]
+num_lives = int(3)
 word = str(random.choice(word_list))
 length= int(len(word))
 word_guessed =['_']*length
@@ -53,11 +57,16 @@ list_letters=[]
     ask_letter()
         Asks the user for a letter.
     '''
-    def __init__(self, word_list, num_lives=5):
+    def __init__(self, word_list, num_lives):
         # TODO 2: Initialize the attributes as indicated in the docstring
+        word_list = ["Execution","Tea","Supposedly", "there" ,"are" ,"over" ,"one","million", "words" ,"in", "the" ,"English" ,"Language"]
+        num_lives = 3
+
+
         # TODO 2: Print two message upon initialization:
         # 1. "The mystery word has {len(self.word)} characters" (The number of letters is NOT the UNIQUE number of letters)
         # 2. {word_guessed}
+        print(f"The mystery word has {len(self.word)} characters")
         pass
 
     def check_letter(self, letter) -> None:
