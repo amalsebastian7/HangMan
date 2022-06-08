@@ -16,8 +16,12 @@ class Hangman:
     word_list: list
         List of words to be used in the game
     num_lives: int
-        Number of lives the player has
-    
+        Number of lives the player has '''
+
+ word_list = ["Execution","Tea","Supposedly", "there" ,"are" ,"over" ,"one","million", "words" ,"in", "the" ,"English" ,"Language"]
+num_lives = int(3)
+ 
+    '''
     Attributes:
     ----------
     word: str
