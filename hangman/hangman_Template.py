@@ -21,7 +21,7 @@ class Hangman:
  word_list = ["Execution","Tea","Supposedly", "there" ,"are" ,"over" ,"one","million", "words" ,"in", "the" ,"English" ,"Language"]
 num_lives = int(3)
  
-    '''
+          '''
     Attributes:
     ----------
     word: str
@@ -37,9 +37,13 @@ num_lives = int(3)
     list_letters: list
         A list of the letters that have already been tried
 '''
-word = random.choice(word_list)
+word = str(random.choice(word_list))
 length= int(len(word))
 word_guessed =['_']*length
+num_letters=int(len(set(word)))
+list_letters=[]
+
+
 
 '''
     Methods:
