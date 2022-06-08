@@ -36,7 +36,12 @@ num_lives = int(3)
         The number of lives the player has
     list_letters: list
         A list of the letters that have already been tried
+'''
+word = random.choice(word_list)
+length= int(len(word))
+word_guessed =['_']*length
 
+'''
     Methods:
     -------
     check_letter(letter)
