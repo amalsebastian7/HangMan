@@ -42,62 +42,50 @@ class Hangman:
 
 
 
-word_list = ["Execution","Tea","Supposedly", "there" ,"are" ,"over" ,"one","million", "words" ,"in", "the" ,"English" ,"Language"]
-
-num_lives = 3
-word = random.choice(word_list)
-length= len(word)
-word_guessed =['_']*length
-num_letters=len(set(word))
-list_letters=[]
 
 
 
-'''
-    Methods:
-    -------
-    check_letter(letter)
-        Checks if the letter is in the word.
-    ask_letter()
-        Asks the user for a letter.
-    '''
     def __init__(self, word_list, num_lives):
-        # TODO 2: Initialize the attributes as indicated in the docstring
-
         self.word_list = ["Execution","Tea","Supposedly", "there" ,"are" ,"over" ,"one","million", "words" ,"in", "the" ,"English" ,"Language"]
         self.num_lives = 3
-
-
-        # TODO 2: Print two message upon initialization:
-        # 1. "The mystery word has {len(self.word)} characters" (The number of letters is NOT the UNIQUE number of letters)
-        # 2. {word_guessed}
+        self.word = random.choice(self.word_list)
+        self.list_letter=[]
+        self.length= len(self.word)
+        self.word_guessed =['_']*self.length
+        self.num_letters=len(set(self.word))
 
         print(f"The mystery word has {len(self.word)} characters")
-        print(f"{word_guessed}")
+        print(f"{self.word_guessed}")
         pass
+
+# TODO 2: Initialize the attributes as indicated in the docstring
+                # TODO 2: Print two message upon initializae
+                #  # 1. "The mystery word has {len(self.word)} characters" (The number of letters is NOT the UNIQUE number of letters)
+                 # 2. {word_guessed}
+
 
     def check_letter(self, letter) -> None:
         '''
         Checks if the letter is in the word.
         If it is, it replaces the '_' in the word_guessed list with the letter.
         If it is not, it reduces the number of lives by 1.
-
         Parameters:
         ----------
         letter: str
             The letter to be checked
 
         '''
-
         # TODO 3: Check if the letter is in the word. TIP: You can use the lower() method to convert the letter to lowercase
         # TODO 3: If the letter is in the word, replace the '_' in the word_guessed list with the letter
         # TODO 3: If the letter is in the word, the number of UNIQUE letters in the word that have not been guessed yet has to be reduced by 1
         # TODO 3: If the letter is not in the word, reduce the number of lives by 1
         # Be careful! A letter can contain the same letter more than once. TIP: Take a look at the index() method in the string class
-        letter =str(input("Enter a letter")).lower()
-        while num_lives >0:
-            if letter in list(word):
-                list(word).replace(list(word),letter)
+        
+        
+        self.letter =str(input("Enter a letter")).lower()
+        while self.num_lives >0:
+            if self.letter in list(self.word):
+                list(self.word).replace(list(self.word),self.letter)
 
 
         
@@ -106,15 +94,15 @@ list_letters=[]
 
     def ask_letter(self):
             while True:
-            letter=input("Enter a letter")
-                if len(letter)!=1:
+            self.letter=input("Enter a letter")
+                if len(self.letter)!=1:
                     print(f"Enter just a character,Please")
                     continue
-                elif letter in self.list_letter:
-                    print(f"{letter} already tried")
+                elif self.letter in self.list_letter:
+                    print(f"{self.letter} already tried")
                     continue
-                self.list_letter.append(str.lower(letter))
-                self.check_letter(letter)
+                self.list_letter.append(str.lower(self.letter))
+                self.check_letter(self.letter)
                 break
         '''
         Asks the user for a letter and checks two things:
@@ -144,6 +132,6 @@ def play_game(word_list):
     pass
 
 if __name__ == '__main__':
-    word_list = ['apple', 'banana', 'orange', 'pear', 'strawberry', 'watermelon']
+    word_list = [    ]
     play_game(word_list)
 # %%
