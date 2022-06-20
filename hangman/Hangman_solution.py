@@ -3,18 +3,14 @@ from dataclasses import replace
 import random
 
 class Hangman:
+   
     def __init__(self, word_list, num_lives):
-        
         # TODO 2: Initialize the attributes as indicated in the docstring
-        num_lives = 3
-        self.word = random.choice(word_list)
-        self.word_guessed =['_']*len(self.word)
-        num_letters=len(set(self.word))
-        list_letters=[]
+
         # TODO 2: Print two message upon initialization:
         # 1. "The mystery word has {len(self.word)} characters" (The number of letters is NOT the UNIQUE number of letters)
         # 2. {word_guessed}
-        pass
+
 
     def check_letter(self, letter) -> None:
 
@@ -24,23 +20,23 @@ class Hangman:
         # TODO 3: If the letter is not in the word, reduce the number of lives by 1
         # Be careful! A letter can contain the same letter more than once. TIP: Take a look at the index() method in the string class.
         
-        pass
+     pass
 
 
     def ask_letter(self):
         # TODO 1: Ask the user for a letter iteratively until the user enters a valid letter
 
         while True:
-            letter=input("Enter a letter: ")
-            if len(letter)!=1:
-                print(f"Enter just a character,Please")
-                continue
-            elif letter in self.list_letter:
-                print(f"{letter} already tried")
-                continue
-            self.list_letter.append(str.lower(letter))
-            self.check_letter(letter)
-            break
+            letter=input("Enter a letter")
+                if len(letter)!=1:
+                    print(f"Enter just a character,Please")
+                    continue
+                elif letter in self.list_letter:
+                    print(f"{letter} already tried")
+                    continue
+                self.list_letter.append(str.lower(letter))
+                self.check_letter(letter)
+                break
 
         # TODO 1: Assign the letter to a variable called `letter`
         # TODO 1: The letter has to comply with the following criteria: It has to be a single character. If it is not, print "Please, enter just one character"
