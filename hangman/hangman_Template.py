@@ -7,6 +7,8 @@ from dataclasses import replace
 import random
 
 class Hangman:
+
+   
     # '''
     # A Hangman Game that asks the user for a letter and checks if it is in the word.
     # It starts with a default number of lives and a random word from the word_list.
@@ -61,6 +63,7 @@ list_letters=[]
     '''
     def __init__(self, word_list, num_lives):
         # TODO 2: Initialize the attributes as indicated in the docstring
+
         self.word_list = ["Execution","Tea","Supposedly", "there" ,"are" ,"over" ,"one","million", "words" ,"in", "the" ,"English" ,"Language"]
         self.num_lives = 3
 
@@ -102,6 +105,17 @@ list_letters=[]
         pass
 
     def ask_letter(self):
+            while True:
+            letter=input("Enter a letter")
+                if len(letter)!=1:
+                    print(f"Enter just a character,Please")
+                    continue
+                elif letter in self.list_letter:
+                    print(f"{letter} already tried")
+                    continue
+                self.list_letter.append(str.lower(letter))
+                self.check_letter(letter)
+                break
         '''
         Asks the user for a letter and checks two things:
         1. If the letter has already been tried
@@ -118,6 +132,7 @@ list_letters=[]
 def play_game(word_list):
     # As an aid, part of the code is already provided:
     game = Hangman(word_list, num_lives=5)
+    game.ask_letter()
     # TODO 1: To test this task, you can call the ask_letter method
     # TODO 2: To test this task, upon initialization, two messages should be printed 
     # TODO 3: To test this task, you call the ask_letter method and check if the letter is in the word
