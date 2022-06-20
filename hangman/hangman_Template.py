@@ -7,45 +7,46 @@ from dataclasses import replace
 import random
 
 class Hangman:
-    '''
-    A Hangman Game that asks the user for a letter and checks if it is in the word.
-    It starts with a default number of lives and a random word from the word_list.
+    # '''
+    # A Hangman Game that asks the user for a letter and checks if it is in the word.
+    # It starts with a default number of lives and a random word from the word_list.
 
     
-    Parameters:
-    ----------
-    word_list: list
-        List of words to be used in the game
-    num_lives: int
-        Number of lives the player has '''
+    # # Parameters:
+    # # ----------
+    # # word_list: list
+    # #     List of words to be used in the game
+    # # num_lives: int
+    # #     Number of lives the player has '''
 
 
  
-          '''
-    Attributes:
-    ----------
-    word: str
-        The word to be guessed picked randomly from the word_list
-    word_guessed: list
-        A list of the letters of the word, with '_' for each letter not yet guessed
-        For example, if the word is 'apple', the word_guessed list would be ['_', '_', '_', '_', '_']
-        If the player guesses 'a', the list would be ['a', '_', '_', '_', '_']
-    num_letters: int
-        The number of UNIQUE letters in the word that have not been guessed yet
-    num_lives: int
-        The number of lives the player has
-    list_letters: list
-        A list of the letters that have already been tried
-'''
+    #       
+    # Attributes:
+    # ----------
+    # word: str
+    #     The word to be guessed picked randomly from the word_list
+    # word_guessed: list
+    #     A list of the letters of the word, with '_' for each letter not yet guessed
+    #     For example, if the word is 'apple', the word_guessed list would be ['_', '_', '_', '_', '_']
+    #     If the player guesses 'a', the list would be ['a', '_', '_', '_', '_']
+    # num_letters: int
+    #     The number of UNIQUE letters in the word that have not been guessed yet
+    # num_lives: int
+    #     The number of lives the player has
+    # list_letters: list
+    #     A list of the letters that have already been tried
+
 
 
 
 word_list = ["Execution","Tea","Supposedly", "there" ,"are" ,"over" ,"one","million", "words" ,"in", "the" ,"English" ,"Language"]
-num_lives = int(3)
-word = str(random.choice(word_list))
-length= int(len(word))
+
+num_lives = 3
+word = random.choice(word_list)
+length= len(word)
 word_guessed =['_']*length
-num_letters=int(len(set(word)))
+num_letters=len(set(word))
 list_letters=[]
 
 
@@ -60,8 +61,8 @@ list_letters=[]
     '''
     def __init__(self, word_list, num_lives):
         # TODO 2: Initialize the attributes as indicated in the docstring
-        word_list = ["Execution","Tea","Supposedly", "there" ,"are" ,"over" ,"one","million", "words" ,"in", "the" ,"English" ,"Language"]
-        num_lives = 3
+        self.word_list = ["Execution","Tea","Supposedly", "there" ,"are" ,"over" ,"one","million", "words" ,"in", "the" ,"English" ,"Language"]
+        self.num_lives = 3
 
 
         # TODO 2: Print two message upon initialization:
