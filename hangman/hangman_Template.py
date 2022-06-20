@@ -46,12 +46,11 @@ class Hangman:
 
 
     def __init__(self, word_list, num_lives):
-        self.word_list = ["Execution","Tea","Supposedly", "there" ,"are" ,"over" ,"one","million", "words" ,"in", "the" ,"English" ,"Language"]
+        self.word_list = word_list
         self.num_lives = 3
         self.word = random.choice(self.word_list)
         self.list_letter=[]
-        self.length= len(self.word)
-        self.word_guessed =['_']*self.length
+        self.word_guessed =['_']*len(self.word)
         self.num_letters=len(set(self.word))
 
         print(f"The mystery word has {len(self.word)} characters")
@@ -65,6 +64,7 @@ class Hangman:
 
 
     def check_letter(self, letter) -> None:
+
         '''
         Checks if the letter is in the word.
         If it is, it replaces the '_' in the word_guessed list with the letter.
@@ -73,7 +73,6 @@ class Hangman:
         ----------
         letter: str
             The letter to be checked
-
         '''
         # TODO 3: Check if the letter is in the word. TIP: You can use the lower() method to convert the letter to lowercase
         # TODO 3: If the letter is in the word, replace the '_' in the word_guessed list with the letter
@@ -82,10 +81,10 @@ class Hangman:
         # Be careful! A letter can contain the same letter more than once. TIP: Take a look at the index() method in the string class
         
         
-        self.letter =str(input("Enter a letter")).lower()
+        letter =str(input("Enter a letter")).lower()
         while self.num_lives >0:
-            if self.letter in list(self.word):
-                list(self.word).replace(list(self.word),self.letter)
+            if letter in list(self.word):
+                list(self.word).replace(list(self.word),letter)
 
 
         
@@ -94,22 +93,24 @@ class Hangman:
 
     def ask_letter(self):
             while True:
-            self.letter=input("Enter a letter")
-                if len(self.letter)!=1:
+            letter=input("Enter a letter")
+                if len(letter)!=1:
                     print(f"Enter just a character,Please")
                     continue
                 elif self.letter in self.list_letter:
                     print(f"{self.letter} already tried")
                     continue
-                self.list_letter.append(str.lower(self.letter))
-                self.check_letter(self.letter)
+                self.list_letter.append(str.lower(letter))
+                self.check_letter(letter)
                 break
+
         '''
         Asks the user for a letter and checks two things:
         1. If the letter has already been tried
         2. If the character is a single character
         If it passes both checks, it calls the check_letter method.
         '''
+
         # TODO 1: Ask the user for a letter iteratively until the user enters a valid letter
         # TODO 1: Assign the letter to a variable called `letter`
         # TODO 1: The letter has to comply with the following criteria: It has to be a single character. If it is not, print "Please, enter just one character"
@@ -132,6 +133,6 @@ def play_game(word_list):
     pass
 
 if __name__ == '__main__':
-    word_list = [    ]
+    word_list = [ "Execution","Tea","Supposedly", "there" ,"are" ,"over" ,"one","million", "words" ,"in", "the" ,"English" ,"Language"   ]
     play_game(word_list)
 # %%
