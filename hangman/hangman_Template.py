@@ -11,7 +11,7 @@ class Hangman:
         self.word_guessed =['_']*len(self.word)
         self.num_letters=len(set(self.word))
 
-        print(f"The mystery word has {len(self.word)} characters")
+        print(f"The mystery word has:  {len(self.word)} characters")
         print(f"{self.word_guessed}")
         pass
 
@@ -23,13 +23,13 @@ class Hangman:
                 for i, L in enumerate(self.word):
                     if L == letter:
                         self.word_guessed[i] = L
-                print(f"The word is :{self.word_guessed}")
+                print(f"The word is : {self.word_guessed}")
                 self.ask_letter()
             else:
                 self.num_lives -=1
-                print(f"The letter guessed is wrong,you have {self.num_lives} lives left")
+                print(f"The letter guessed is wrong,you have :  {self.num_lives} lives left")
                 if self.num_lives == 0:
-                    print(f"The word is :{self.word}")
+                    print(f"The word is : {self.word}")
                     print(f"You lost")
                     break
                 self.ask_letter()
@@ -49,7 +49,7 @@ class Hangman:
             if self.num_lives != 0:
                 self.check_letter(letter)
             else:
-                print(f"The word is :{self.word}")
+                print(f"The word is : {self.word}")
                 print(f"You lost")
                 break
             break
